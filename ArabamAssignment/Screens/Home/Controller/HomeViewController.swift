@@ -15,13 +15,29 @@ final class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Araçlar"
-        
+        setupTableView()
+        fetchVehicleList()
+    }
+    
+    @objc
+    private func didTapGestureRecognized(_ sender: UITapGestureRecognizer) {
+        let tapLocation = sender.location(in: tableView)
+        if let indexPath = tableView.indexPathForRow(at: tapLocation) {
+            let detailViewModel = DetailViewModel(id: viewModel.vehicleId(for: indexPath))
+            let detailViewController = DetailViewController(viewModel: detailViewModel)
+            navigationController?.pushViewController(detailViewController, animated: true)
+        }
+    }
+    
+    private func setupTableView() {
         tableView.register(UINib(nibName: "VehicleTableViewCell", bundle: nil),
                            forCellReuseIdentifier: "VehicleTableViewCell")
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapGestureRecognized(_:)))
         tableView.addGestureRecognizer(tapGestureRecognizer)
-        
+    }
+    
+    private func fetchVehicleList() {
         viewModel.fetchVehicleList()
         
         viewModel.onFetchVehicleListSucceed = {
@@ -34,16 +50,6 @@ final class HomeViewController: BaseViewController {
         
         viewModel.onDownloadVehiclePhotoFailure = { error in
             self.showError(error)
-        }
-    }
-    
-    @objc
-    private func didTapGestureRecognized(_ sender: UITapGestureRecognizer) {
-        let tapLocation = sender.location(in: tableView)
-        if let indexPath = tableView.indexPathForRow(at: tapLocation) {
-            let detailViewModel = DetailViewModel(id: viewModel.vehicleId(for: indexPath))
-            let detailViewController = DetailViewController(viewModel: detailViewModel)
-            navigationController?.pushViewController(detailViewController, animated: true)
         }
     }
 }
