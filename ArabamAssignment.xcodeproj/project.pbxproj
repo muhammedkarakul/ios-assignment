@@ -11,6 +11,7 @@
 		5735666B278E45F30076B6FA /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5735666A278E45F30076B6FA /* BaseViewController.swift */; };
 		5735666F278E47CA0076B6FA /* PropertyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5735666D278E47CA0076B6FA /* PropertyTableViewCell.swift */; };
 		57356670278E47CA0076B6FA /* PropertyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5735666E278E47CA0076B6FA /* PropertyTableViewCell.xib */; };
+		57356677278E6C570076B6FA /* String+HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57356676278E6C570076B6FA /* String+HTML.swift */; };
 		57558FF9278B3F2200268478 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57558FF7278B3F2200268478 /* HomeViewController.swift */; };
 		57558FFA278B3F2200268478 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57558FF8278B3F2200268478 /* HomeViewController.xib */; };
 		57E1E1A9278CC5C800A0B00E /* VehicleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1E1A7278CC5C800A0B00E /* VehicleTableViewCell.swift */; };
@@ -43,6 +44,7 @@
 		5735666A278E45F30076B6FA /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		5735666D278E47CA0076B6FA /* PropertyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyTableViewCell.swift; sourceTree = "<group>"; };
 		5735666E278E47CA0076B6FA /* PropertyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PropertyTableViewCell.xib; sourceTree = "<group>"; };
+		57356676278E6C570076B6FA /* String+HTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+HTML.swift"; sourceTree = "<group>"; };
 		57558FF7278B3F2200268478 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		57558FF8278B3F2200268478 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		57E1E1A7278CC5C800A0B00E /* VehicleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleTableViewCell.swift; sourceTree = "<group>"; };
@@ -90,6 +92,14 @@
 				5735666E278E47CA0076B6FA /* PropertyTableViewCell.xib */,
 			);
 			path = PropertyTableViewCell;
+			sourceTree = "<group>";
+		};
+		57356675278E6C360076B6FA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				57356676278E6C570076B6FA /* String+HTML.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		57558FEF278B3EA400268478 /* Supporting Files */ = {
@@ -184,6 +194,7 @@
 		57E1E1B0278CD4A200A0B00E /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				57356675278E6C360076B6FA /* Extensions */,
 				57E1E1CB278CFA8300A0B00E /* Base */,
 				57E1E1B3278CD51700A0B00E /* Network */,
 			);
@@ -420,6 +431,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57E1E1ED278E37C600A0B00E /* VehiclePhotoCollectionViewCell.swift in Sources */,
+				57356677278E6C570076B6FA /* String+HTML.swift in Sources */,
 				57E1E1C2278CE33A00A0B00E /* VehicleListRequest.swift in Sources */,
 				57356669278E3EED0076B6FA /* VehicleDetailRequest.swift in Sources */,
 				57E1E1E4278D2B2000A0B00E /* VehicleDetail.swift in Sources */,

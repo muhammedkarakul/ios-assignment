@@ -26,6 +26,11 @@ final class DetailViewController: BaseViewController {
         
         title = "İlan Detayı"
         
+        setupTableView()
+        fetchVehicleDetail()
+    }
+    
+    private func setupTableView() {
         tableView.register(UINib(nibName: "VehicleDetailTitleTableViewCell", bundle: nil),
                            forCellReuseIdentifier: "VehicleDetailTitleTableViewCell")
         
@@ -34,6 +39,10 @@ final class DetailViewController: BaseViewController {
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
         
+        tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "HeaderView")
+    }
+    
+    private func fetchVehicleDetail() {
         viewModel?.fetchVehicleDetail()
         
         viewModel?.onFetchVehicleDetailSucceed = {
@@ -56,7 +65,14 @@ final class DetailViewController: BaseViewController {
 
 // MARK: - UITableViewDelegate
 extension DetailViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch Section(rawValue: section) {
+        case .title:
+            return viewModel?.vehicleDetail?.title
+        default:
+            return nil
+        }
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -92,7 +108,7 @@ extension DetailViewController: UITableViewDataSource {
                 return cell
             case .description:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
-                cell.textLabel?.text = viewModel?.vehicleDetail?.text
+                cell.textLabel?.attributedText = viewModel?.vehicleDetail?.text.htmlToAttributedString
                 cell.textLabel?.numberOfLines = .zero
                 return cell
             default:
